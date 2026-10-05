@@ -2,6 +2,17 @@
 
 Stand: 05.10.2026. Repo `AlpernaGmbH/websitev4`, Vercel-Projekt `websitev4`. Spec und Plan: `docs/superpowers/`.
 
+## Geprüft (05.10.2026)
+- 53 Unit-Tests und 40 End-to-End-Tests (20 Fälle auf Desktop und Handy) grün. Der Check-Ablauf ist mit gemockter Analyse getestet, es entstehen dabei keine echten Leads und keine KI-Kosten.
+- Lighthouse mobil, lokal, Produktions-Build: Performance 92, Accessibility 100, Best Practices 100. SEO 69, allein wegen `noindex` (wird mit `NEXT_PUBLIC_INDEXABLE=1` zu 100).
+- Sichtprüfung aller Abschnitte bei 1280, 768 und 375 px (`node scripts/shots.mjs <Ordner>`).
+- Vercel-Build erfolgreich (READY).
+
+## Nicht geprüft
+- **Die Seite auf Vercel selbst.** Die Vorschau liegt hinter dem Vercel-Login, der Zugang über die Schnittstelle wurde mit 403 abgelehnt. Bitte `https://websitev4-website-dbed.vercel.app` im Browser öffnen.
+- **Die echte KI-Einschätzung.** Lokal gibt es keinen Gateway-Zugang. Der Code läuft gegen eine simulierte KI und fällt bei jedem Fehler sauber auf «Ergebnis ohne KI-Abschnitt» zurück. Ob das Gateway auf Vercel antwortet (Guthaben, Modell `mistral/mistral-large-3`), zeigt der erste echte Check. Im Zweifel in den Laufzeit-Logs nach «check ok mit ki» oder «ohne ki» suchen.
+- **Der Versand an n8n** (Kontaktformular und Check-Lead). `N8N_WEBHOOK_URL` ist in Vercel gesetzt, es wurde aber bewusst kein Test-Lead ausgelöst, damit keine Mail und kein Eintrag im Notion CRM entstehen.
+
 ## Fertig
 - One-Pager: Header, Hero (Termin buchen, Gratis Marketing-Check), Belege, Marketing-Check, Leistungen, Ablauf, Referenzen, Über uns, FAQ, Kontakt, Footer. Alles in Du-Form.
 - Marketing-Check: Eingaben, «Check generieren», Popup mit E-Mail-Pflicht (Analyse läuft währenddessen), Ergebnis auf der Seite. Lead geht an den n8n-Webhook (Mail an kontakt@alperna.ch, Notion Sales CRM).
