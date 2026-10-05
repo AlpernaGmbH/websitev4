@@ -158,7 +158,7 @@ h2 em {
 
 .eyebrow {
   margin: 0 0 1rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -185,7 +185,7 @@ h2 em {
   color: var(--ink-soft);
 }
 .hinweis {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 .link {
@@ -370,6 +370,9 @@ h2 em {
   color: var(--on-dark);
 }
 
+.header .btn--kompakt {
+  white-space: nowrap;
+}
 .nav {
   display: none;
   margin: 0 1.5rem 0 auto;
@@ -440,6 +443,35 @@ h2 em {
   text-decoration: none;
 }
 
+@media (max-width: 420px) {
+  .header__inner {
+    gap: 0.5rem;
+  }
+  .header__rechts {
+    gap: 0.25rem;
+  }
+  .header .btn--kompakt {
+    min-height: 44px;
+    padding: 0 0.85rem;
+    font-size: 0.95rem;
+  }
+  .logo {
+    gap: 0.5rem;
+  }
+  .logo__marke {
+    width: 38px;
+    height: 38px;
+  }
+  .logo__text {
+    font-size: 1.15rem;
+  }
+}
+@media (max-width: 350px) {
+  .logo__text {
+    display: none;
+  }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -478,7 +510,7 @@ h2 em {
   gap: 0.5rem;
 }
 .cta__hinweis {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 .hero .haken-liste {
@@ -513,7 +545,7 @@ h2 em {
   line-height: 1.4;
 }
 .gruender figcaption span {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 
@@ -565,9 +597,14 @@ h2 em {
   line-height: 1.1;
 }
 .belege__liste span {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.4;
   color: var(--ink-soft);
+}
+@media (max-width: 560px) {
+  .belege__liste strong {
+    font-size: 1.9rem;
+  }
 }
 @media (max-width: 860px) {
   .belege__liste {
@@ -766,7 +803,7 @@ h2 em {
 .form__status {
   min-height: 1.4em;
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 .form__status[data-state='fehler'] {
@@ -802,6 +839,8 @@ h2 em {
 /* ---------- Dialoge ---------- */
 .dialog {
   width: 100%;
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
   max-width: min(560px, calc(100vw - 2rem));
   padding: 0;
   border: 0;
@@ -877,7 +916,7 @@ h2 em {
   margin: 0;
   padding: 0.75rem 1.25rem;
   border-top: 1px solid var(--line);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .fortschritt {
@@ -887,7 +926,7 @@ h2 em {
 }
 .fortschritt__titel {
   margin: 0 0 0.75rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -946,7 +985,7 @@ h2 em {
 }
 .ergebnis__fuer {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--ink-soft);
 }
 .ergebnis h3 {
@@ -993,7 +1032,7 @@ h2 em {
 }
 .score small {
   margin-top: 0.15rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--ink-soft);
 }
 
@@ -1018,7 +1057,7 @@ h2 em {
 }
 .ki__hinweis {
   margin: 0 0 1rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--ink-soft);
 }
 .ki__zusammenfassung {
@@ -1125,12 +1164,12 @@ h2 em {
   padding: 0.1rem 0.6rem;
   border-radius: 99px;
   background: var(--tint);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--ink-soft);
 }
 .kategorie__hinweis {
   margin: 0.8rem 0 0;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--ink-soft);
 }
 .balken {
@@ -1162,7 +1201,7 @@ h2 em {
 .befunde small {
   display: block;
   margin-top: 0.1rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--ink-soft);
 }
 .befunde__zeichen {
@@ -1217,7 +1256,7 @@ h2 em {
 }
 .ergebnis__grenze {
   margin: 1.25rem 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--ink-soft);
 }
 .ergebnis__aktionen {
@@ -1284,7 +1323,7 @@ h2 em {
   font-size: 1.15rem;
 }
 .karte__preis span {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 .weitere {
@@ -1423,7 +1462,7 @@ h2 em {
 }
 .fall__kopf p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 .zahlen {
@@ -1446,13 +1485,13 @@ h2 em {
   line-height: 1.1;
 }
 .zahlen dt {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.35;
   color: var(--ink-soft);
 }
 .fall h4 {
   margin: 0.75rem 0 0.15rem;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1513,7 +1552,7 @@ h2 em {
   line-height: 1.4;
 }
 .stimmen figcaption span {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--ink-soft);
 }
 @media (max-width: 960px) {
@@ -1593,7 +1632,7 @@ h2 em {
 }
 .person__rolle {
   margin: 0.2rem 0 0.8rem !important;
-  font-size: 0.92rem !important;
+  font-size: 1rem !important;
   font-weight: 600;
   color: var(--ink-soft);
 }
@@ -1736,7 +1775,7 @@ h2 em {
   line-height: 1.3;
 }
 .weg span {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 .kontakt__formular {
@@ -1821,7 +1860,7 @@ h2 em {
   margin-top: 3rem;
   padding-block: 1.5rem;
   border-top: 1px solid var(--line-dark);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 .footer__unten p {
   margin: 0;
