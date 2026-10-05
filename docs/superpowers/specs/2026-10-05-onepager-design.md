@@ -58,6 +58,14 @@ Palette aus dem Alperna Design System (`#121110`, `#FDFBFB`, `#FFD700`, `#111A28
 5. Lead: genau ein `POST /api/lead` mit E-Mail und Kurzergebnis, sobald das Ergebnis oder ein Fehler feststeht (Fallback beim Schliessen der Seite). Weiterleitung an den bestehenden n8n-Webhook (Mail an kontakt@alperna.ch, Eintrag im Notion Sales CRM).
 6. Schliesst der Besucher das Popup ohne E-Mail, wird die Analyse abgebrochen und das Formular bleibt ausgefüllt.
 
+### Analyse und KI (Ergänzung vom 05.10.2026)
+
+Befund beim Bauen: Die bisherige Analyse in `alperna-tool` ist **regelbasiert und enthält keine KI** (sie prüft SEO, Tracking, Shop, Buchung, Newsletter und Social-Links). Gewünscht war eine KI, die die Marke genau anschaut. Deshalb:
+
+- Die Engine (`analyzer.mjs`, Quelle `AlpernaGmbH/tool/lib/marketing-check`) liegt als Kopie in `lib/marketing-check/`. Damit entfällt der zweite Netzwerkweg, und das IP-Limit der Engine (15 pro Stunde) gilt nicht für alle Besucher zusammen, weil sonst alle über dieselbe Server-IP kämen. Ergänzt ist ein Seiten-Schnappschuss (Titel, Beschreibung, Überschriften, Textauszug).
+- **KI-Einschätzung** über das Vercel AI Gateway, nach dem Muster von `marketing-tool` (`lib/check/ai.ts`): Die KI erhält nur die Messwerte und den Schnappschuss, schreibt eine Zusammenfassung, bis zu zwei Stärken, bis zu drei Lücken der Marke und bis zu drei Schritte. Die Antwort wird geprüft (Länge, Schreibweise, verbotene Wörter, keine Links). Besteht sie die Prüfung nicht oder fehlt der KI-Zugang, erscheint das Ergebnis **ohne** KI-Abschnitt. Die Seite behauptet «KI» nur dort, wo sie wirklich gelaufen ist.
+- Kosten: Modelle `AI_MODELS` (Standard `mistral/mistral-large-3`, Rückfall `anthropic/claude-haiku-4.5`), ca. 0,003 USD pro Check, `maxOutputTokens` 700, Tagesobergrenze pro Serverinstanz.
+
 Fehlerfälle: Analyse schlägt fehl → verständliche Meldung, Hinweis auf Termin und Kontakt, E-Mail wird trotzdem als Lead gesendet. Zu viele Anfragen (429) → eigene Meldung.
 
 ## Technik
@@ -65,7 +73,7 @@ Fehlerfälle: Analyse schlägt fehl → verständliche Meldung, Hinweis auf Term
 - Next.js (App Router), TypeScript, reines CSS mit Tokens. Keine Tracking-Skripte, keine Cookies.
 - Schriften über `next/font` (selbst gehostet), Bilder als WebP über `next/image`.
 - Routen: `/` (One-Pager), `/impressum`, `/datenschutz`, `/api/check`, `/api/lead`, `/api/kontakt`.
-- `/api/check` leitet geprüfte Eingaben an die bestehende Analyse in `alperna-tool` weiter (`CHECK_API_URL`), begrenzt pro IP.
+- `/api/check` prüft die Eingaben, begrenzt pro IP, ruft die lokale Engine (`lib/marketing-check`) und danach die KI-Einschätzung (`lib/ki.ts`) auf.
 - `/api/kontakt` und `/api/lead` senden an `N8N_WEBHOOK_URL`. Ohne Konfiguration antworten sie mit 503 statt scheinbar zu funktionieren.
 - «Termin buchen» öffnet Calendly als Dialog (iframe, wird erst beim Öffnen geladen), mit Link «In neuem Tab öffnen» als Rückfall.
 - Vorschau auf Vercel mit `noindex`. Indexierung erst über `NEXT_PUBLIC_INDEXABLE=1` beim Go-live.

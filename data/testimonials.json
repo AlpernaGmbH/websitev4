@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "quelle": "https://www.alperna.ch (Startseite und Projekt-Detailseiten), gelesen am 04.10.2026",
+    "bearbeitung": "Nur Orthografie: ss statt ß, Bindestriche in Zusammensetzungen, einzelne Kommas. Inhalt unverändert.",
+    "status": "Zitate müssen vor dem Go-live von den Absendern freigegeben bleiben, wie auf der Live-Site."
+  },
+  "zitate": [
+    {
+      "projekt": "bc-trogen-speicher",
+      "firma": "BC Trogen Speicher",
+      "branche": "Sportverein (Badminton)",
+      "text": "Alperna hat nicht nur die Aufrufe unseres Instagram-Profils um 690 % erhöht, sondern hat auch nützliche Daten zur Entwicklung unserer Social-Media-Präsenz geliefert.",
+      "fuerStartseite": false
+    },
+    {
+      "projekt": "appenzellerland-sport",
+      "firma": "Appenzellerland Sport",
+      "branche": "Sportschule",
+      "text": "Wir sind sehr mit der Arbeit von Alperna zufrieden. Wir haben viele Hinweise erhalten, wie wir unseren Instagram-Kanal verbessern können, und empfehlen sie weiter.",
+      "fuerStartseite": false
+    },
+    {
+      "projekt": "alex-breitenmoser",
+      "firma": "Alex Breitenmoser",
+      "branche": "Vertriebs-Coaching",
+      "text": "Wir haben Strategie, Website, Videos und Social Media komplett abgegeben und sind vom Ergebnis begeistert. Alles greift perfekt ineinander.",
+      "fuerStartseite": true
+    },
+    {
+      "projekt": "klartext-von-zwei-kanten",
+      "firma": "Klartext von 2 Kanten",
+      "branche": "Podcast",
+      "text": "Unser erster Beitrag von Alperna hat über 50’000 Menschen erreicht. Wir sind sehr von der Genauigkeit und Geschwindigkeit von Alperna überrascht.",
+      "fuerStartseite": true
+    },
+    {
+      "projekt": "pocket-properties-app",
+      "firma": "Pocket Properties App",
+      "branche": "Immobilien",
+      "text": "Wir haben nur positive Erfahrungen gemacht. Alperna versteht unser Geschäft bis ins Detail und deckt das ganze Spektrum ab. Die Arbeitsweise ist extrem genau und flexibel.",
+      "fuerStartseite": false
+    },
+    {
+      "projekt": "nordcloud",
+      "firma": "Nordcloud, an IBM Company",
+      "branche": "Cloud-Dienstleistungen",
+      "text": "Die Zusammenarbeit mit Alperna hat uns auf ganzer Linie überzeugt und das Ergebnis ist wirklich grossartig geworden. Vielen Dank für die wundervolle Unterstützung!",
+      "fuerStartseite": false
+    },
+    {
+      "projekt": "boostraft",
+      "firma": "Boostraft",
+      "branche": "YouTube-Agentur",
+      "text": "Alperna konnte uns innerhalb von 30 Tagen über 412 Leads und 1’000 Follower liefern. Wir sind ausserordentlich mit der Zusammenarbeit zufrieden.",
+      "fuerStartseite": false
+    },
+    {
+      "projekt": "whitetail-fever",
+      "firma": "Whitetail Fever",
+      "branche": "E-Commerce",
+      "text": "Alperna hat die Präsenz unseres E-Commerce Accounts um über 70’000 Follower erweitert und dabei sowohl für Instagram, Facebook und TikTok die Produktion übernommen.",
+      "fuerStartseite": false
+    }
+  ],
+  "videos": [
+    {
+      "projekt": "appenzellerland-sport",
+      "datei": null
+    },
+    {
+      "projekt": "bc-trogen-speicher",
+      "datei": null
+    },
+    {
+      "projekt": "lifeboost",
+      "datei": null
+    }
+  ],
+  "videosHinweis": "Reihenfolge und Zuordnung der Dateien beim Asset-Download klären. Die Zitate von Appenzellerland Sport und BC Trogen Speicher stehen auf den Projektseiten."
+}
