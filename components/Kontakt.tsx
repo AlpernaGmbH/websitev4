@@ -1,6 +1,5 @@
 import { Chat, Kalender, Mail, Pfeil, Pin } from '@/components/Icons'
 import { KontaktFormular } from '@/components/KontaktFormular'
-import { Teile } from '@/components/Teile'
 import { TerminButton } from '@/components/TerminProvider'
 import { kontakt } from '@/lib/content'
 import { site } from '@/lib/site'
@@ -11,13 +10,11 @@ const karteUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 
 export function Kontakt() {
   return (
-    <section className="section section--tint" id={kontakt.id} aria-labelledby="kontakt-titel">
+    <section className="sektion sektion--sand" id={kontakt.id} aria-labelledby="kontakt-titel">
       <div className="container kontakt">
         <div className="kontakt__links">
           <p className="eyebrow">{kontakt.eyebrow}</p>
-          <h2 id="kontakt-titel">
-            <Teile teile={kontakt.h2} />
-          </h2>
+          <h2 id="kontakt-titel">{kontakt.h2}</h2>
           <p className="lead">{kontakt.lead}</p>
 
           <ul className="wege">

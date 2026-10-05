@@ -2,9 +2,6 @@
 import { chf } from '@/lib/format'
 import { jahreText, site } from '@/lib/site'
 
-/** Text mit höchstens einem Akzentwort (kursiv, mit goldener Markierung) */
-export type Teil = { t: string; em?: boolean }
-
 const partner = site.partnerAnzahl
 const ort = `${site.address.city} ${site.address.canton}`
 
@@ -15,7 +12,6 @@ export const meta = {
 
 export const nav = [
   { label: 'Leistungen', href: '#leistungen' },
-  { label: 'Ablauf', href: '#ablauf' },
   { label: 'Referenzen', href: '#referenzen' },
   { label: 'Über uns', href: '#ueber-uns' },
   { label: 'Fragen', href: '#fragen' },
@@ -23,19 +19,19 @@ export const nav = [
 ]
 
 export const hero = {
-  eyebrow: `Alperna GmbH, ${ort}`,
-  h1: [{ t: 'Wir sorgen dafür, dass dich Kunden ' }, { t: 'online finden.', em: true }] as Teil[],
-  lead: 'Website, Google-Profil und Social Media aus einer Hand, für Betriebe in der Ostschweiz. Du sprichst direkt mit Andrej und Leander, den Gründern.',
+  eyebrow: `Alperna GmbH · ${ort}`,
+  h1: 'Website, Google-Profil und Social Media für Betriebe in der Ostschweiz.',
+  lead: 'Zwei Gründer aus Speicher. Du erreichst uns persönlich, und wir kommen gerne bei dir im Betrieb vorbei.',
   termin: 'Termin buchen',
   terminHinweis: 'Kostenloses Erstgespräch, 30 Minuten',
   check: 'Gratis Marketing-Check',
   checkHinweis: 'Ergebnis in etwa einer Minute',
-  vertrauen: ['Kostenlos und unverbindlich', 'Keine langen Verträge', `Antwort ${site.antwortZeit}`],
-  fotoTitel: 'Andrej Good und Leander Züst',
-  fotoUntertitel: `Gründer der Alperna GmbH in ${ort}`,
+  vertrauen: ['Persönlich betreut, keine Hotline', 'Keine langen Verträge', `Antwort ${site.antwortZeit}`],
+  kartenTitel: 'Betriebe aus der Region, mit denen wir arbeiten',
+  kartenHinweis: 'Tippe auf eine Markierung, um mehr zu sehen.',
 }
 
-export const belege = [
+export const fakten = [
   { wert: String(partner), label: 'Partner, mit denen wir gearbeitet haben' },
   { wert: `${site.seitJahren} Jahre`, label: 'Erfahrung mit digitalen Auftritten' },
   { wert: `ab ${chf(site.preise.websiteAb)}`, label: 'für eine Website, der Richtpreis steht vorab fest' },
@@ -45,7 +41,7 @@ export const belege = [
 export const check = {
   id: 'check',
   eyebrow: 'Gratis Marketing-Check',
-  h2: [{ t: 'Wie gut wird dein Betrieb ' }, { t: 'online gefunden?', em: true }] as Teil[],
+  h2: 'Wie gut wird dein Betrieb online gefunden?',
   lead: 'Wir prüfen deine Website, dein Google-Profil und deine Social-Media-Kanäle. Danach schreibt eine KI eine ehrliche Einschätzung deiner Marke. Das dauert etwa eine Minute und kostet nichts.',
   punkte: ['Wir prüfen nur, was öffentlich sichtbar ist.', 'Das Ergebnis siehst du direkt hier auf der Seite.', 'Danach entscheidest du, ob du mit uns sprechen möchtest.'],
   formular: {
@@ -151,77 +147,80 @@ export const check = {
 export const leistungen = {
   id: 'leistungen',
   eyebrow: 'Leistungen',
-  h2: [{ t: 'Was wir für ' }, { t: 'dich', em: true }, { t: ' tun.' }] as Teil[],
-  lead: 'Wir starten meist mit der Website. Danach schlagen wir dir immer nur den nächsten Baustein vor, und nur, wenn er dir etwas bringt.',
+  h2: 'Drei Dinge, die wir richtig machen',
+  lead: 'Wir beginnen meistens mit der Website. Danach schlagen wir dir immer nur den nächsten Schritt vor, und nur, wenn er dir etwas bringt.',
   karten: [
     {
       titel: 'Website',
+      versprechen: 'Eine Website, die auf dem Handy gut aussieht und dir Anfragen bringt.',
+      punkte: ['Texte und Aufbau, die zu deinen Kunden passen', 'Eigene Fotos statt Stockbilder, auf Wunsch mit Shooting bei dir', 'Kontakt, WhatsApp und Terminbuchung gleich eingebaut'],
       preis: `ab ca. ${chf(site.preise.websiteAb)}`,
-      preisZusatz: `mit eigenem Shooting ca. ${chf(site.preise.websiteMitShooting)}`,
-      text: 'Eine Website, die auf dem Handy überzeugt und Anfragen bringt.',
-      punkte: ['Texte und Aufbau, die zu deinen Kunden passen', 'Eigene Fotos statt Stockbilder', 'Anfrageformular, WhatsApp und Terminbuchung'],
+      preisZusatz: `mit Fotoshooting ca. ${chf(site.preise.websiteMitShooting)}`,
     },
     {
       titel: 'Google-Profil',
+      versprechen: 'Damit du bei Google und auf Maps richtig auftauchst, wenn jemand in der Nähe nach dir sucht.',
+      punkte: ['Profil einrichten oder aufräumen', 'Öffnungszeiten, Leistungen und Fotos aktuell halten', 'Bewertungen beantworten'],
       preis: 'Preis im Gespräch',
-      preisZusatz: 'kleiner Aufwand, grosse Wirkung',
-      text: 'Wer in der Region nach deiner Branche sucht, findet dich bei Google und auf Google Maps.',
-      punkte: ['Profil einrichten oder in Ordnung bringen', 'Öffnungszeiten, Leistungen und Fotos pflegen', 'Bewertungen beantworten'],
+      preisZusatz: 'wenig Aufwand, grosse Wirkung',
     },
     {
       titel: 'Social Media',
+      versprechen: 'Beiträge und Videos, die nach deinem Betrieb aussehen und nicht nach Vorlage.',
+      punkte: ['Wir planen, filmen und posten vor Ort bei dir', 'Du siehst vorher, was online geht', 'Auf Wunsch übernehmen wir alles'],
       preis: `Einzelner Beitrag ab ${chf(site.preise.einzelbeitrag)}`,
-      preisZusatz: 'auf Wunsch komplett für dich',
-      text: 'Beiträge und Videos, die zu deinen Kunden passen. Wir planen, produzieren und posten.',
-      punkte: ['Themen und Kanäle, die zu dir passen', 'Fotos und Videos vor Ort bei dir', 'Du siehst vorab, was online geht'],
+      preisZusatz: 'laufende Betreuung nach Absprache',
     },
   ],
-  weitere: 'Auf Anfrage: Onlineshop, Online-Buchung und Google Ads. Wir schlagen sie nur vor, wenn sie für deinen Betrieb der sinnvollste nächste Schritt sind.',
-}
-
-export const ablauf = {
-  id: 'ablauf',
-  eyebrow: 'So arbeiten wir',
-  h2: [{ t: 'In vier Schritten ' }, { t: 'zum Auftritt,', em: true }, { t: ' der läuft.' }] as Teil[],
-  lead: 'Transparent und Schritt für Schritt. Du weisst immer, was als Nächstes passiert.',
-  etappen: [
-    { titel: 'Kennenlernen', text: 'Kostenloses Erstgespräch bei dir im Betrieb, am Telefon oder per Video. Wir hören zu und stellen die richtigen Fragen.' },
-    { titel: 'Vorschlag', text: 'Wir schauen uns deinen heutigen Auftritt an und schlagen dir den nächsten sinnvollen Baustein vor, mit klarem Preis.' },
-    { titel: 'Umsetzung', text: 'Wir setzen den Baustein um und halten dich mit kurzen Updates auf dem Laufenden. Du siehst, woran wir arbeiten und warum.' },
-    { titel: 'Betreuung', text: `Auf Wunsch betreuen wir deinen Auftritt weiter: Hosting, Anpassungen, Beiträge. Du erreichst uns per WhatsApp oder E-Mail, ${site.erreichbarkeitTageProJahr} Tage im Jahr.` },
-  ],
+  weitere: 'Auf Anfrage machen wir auch Onlineshops, Online-Buchung und Google Ads. Das schlagen wir nur vor, wenn es sich für deinen Betrieb lohnt.',
 }
 
 export const referenzen = {
   id: 'referenzen',
   eyebrow: 'Referenzen',
-  h2: [{ t: 'Das haben wir für Betriebe ' }, { t: 'aus der Region', em: true }, { t: ' umgesetzt.' }] as Teil[],
-  lead: 'Jeder Betrieb ist anders. Hier siehst du, wie die Ausgangslage aussah, was wir gemacht haben und was dabei herauskam.',
+  h2: 'Das haben wir für Betriebe in deiner Nähe gemacht',
+  lead: 'Jeder Betrieb ist anders. Hier siehst du vier davon: wo sie standen, was wir gemacht haben und was dabei herauskam.',
   ausgangslage: 'Ausgangslage',
   umsetzung: 'Was wir gemacht haben',
+  weitereTitel: 'Auch dabei',
   zitateTitel: 'Das sagen unsere Partner',
   logoTitel: `${partner} Partner, mit denen wir gearbeitet haben`,
+}
+
+export const ablauf = {
+  id: 'ablauf',
+  eyebrow: 'So arbeiten wir',
+  h2: 'In vier Schritten zum Auftritt, der läuft',
+  lead: 'Du weisst jederzeit, was als Nächstes passiert und was es kostet.',
+  schritte: [
+    { titel: 'Kennenlernen', text: 'Wir treffen uns 30 Minuten, bei dir im Betrieb, am Telefon oder per Video. Wir hören zu, bevor wir etwas vorschlagen.' },
+    { titel: 'Vorschlag', text: 'Wir schauen uns deinen heutigen Auftritt an, sagen dir offen, was wir sehen, und schlagen den nächsten sinnvollen Schritt vor. Mit Preis.' },
+    { titel: 'Umsetzung', text: 'Wir setzen es um und melden uns zwischendurch kurz. So siehst du, woran wir arbeiten und warum.' },
+    { titel: 'Betreuung', text: `Wenn du magst, bleiben wir dran: Hosting, Anpassungen, Beiträge. Du erreichst uns per WhatsApp oder E-Mail, ${site.erreichbarkeitTageProJahr} Tage im Jahr.` },
+  ],
 }
 
 export const ueberUns = {
   id: 'ueber-uns',
   eyebrow: 'Über uns',
-  h2: [{ t: 'Zwei Gründer, die du ' }, { t: 'persönlich', em: true }, { t: ' kennenlernst.' }] as Teil[],
-  lead: 'Andrej sorgt für die richtigen Worte, Leander für das passende Bild. Zusammen kümmern wir uns darum, dass du auf allen Kanälen überzeugst.',
-  karten: [
-    {
-      id: 'andrej' as const,
-      rolle: 'Mitgründer · Text und Produktion',
-      text: 'Ich schreibe die Texte, baue die Websites und filme vor Ort. Was ich dir zusage, halte ich. Wenn ein Schritt nichts bringt, sage ich es dir.',
-    },
-    {
-      id: 'leander' as const,
-      rolle: 'Mitgründer · Video und Produktion',
-      text: 'Ich plane die Inhalte und schneide die Videos. Mir ist wichtig, dass das Material nach deinem Betrieb aussieht und nicht nach Vorlage.',
-    },
+  h2: 'Wer hinter Alperna steckt',
+  rollen: {
+    andrej: { rolle: 'Text und Produktion' },
+    leander: { rolle: 'Video und Produktion' },
+  },
+  briefOrt: `${ort}, im Oktober 2026`,
+  anrede: 'Guten Tag',
+  absaetze: [
+    'Wir sind Andrej und Leander und arbeiten von Speicher aus. Die Betriebe, für die wir arbeiten, kennst du vielleicht: den Badmintonclub in Trogen, den Gewerbeverband, ein Restaurant am Bodensee.',
+    'Im Kern machen wir drei Dinge: Websites, Google-Profile und Social Media. Du siehst immer, was wir tun und was es kostet.',
+    `Ja, wir sind jung. Seit ${jahreText} Jahren arbeiten wir an digitalen Auftritten, haben ${partner} Partner betreut und studieren beide ${site.studium}. Dafür bekommst du keine Hotline, sondern uns beide.`,
+    'Am liebsten lernen wir uns bei einem Kaffee in deinem Betrieb kennen.',
   ],
-  jungTitel: 'Ja, wir sind jung. Deshalb kümmern wir uns persönlich.',
-  jungText: `Wir arbeiten seit ${jahreText} Jahren an digitalen Auftritten, haben ${partner} Partner betreut und studieren beide ${site.studium}. Du bekommst keine Hotline, sondern uns beide, ${site.erreichbarkeitTageProJahr} Tage im Jahr per WhatsApp oder E-Mail.`,
+  gruss: 'Freundliche Grüsse',
+  unterschrift: 'Andrej & Leander',
+  signatur: 'Andrej Good und Leander Züst, Gründer',
+  ps: 'Lass vorher unseren Marketing-Check über deinen Auftritt laufen. Er kostet nichts und dauert eine Minute.',
+  psButton: 'Marketing-Check starten',
   einblickeTitel: 'So arbeiten wir vor Ort',
   einblicke: [
     { src: '/images/kulissen/interview.webp', alt: 'Alperna beim Filmen eines Interviews beim Kunden vor Ort' },
@@ -234,27 +233,27 @@ export const ueberUns = {
 export const faq = {
   id: 'fragen',
   eyebrow: 'Häufige Fragen',
-  h2: [{ t: 'Gut zu ' }, { t: 'wissen.', em: true }] as Teil[],
+  h2: 'Gut zu wissen',
   fragen: [
     {
-      q: 'Wie lange bin ich gebunden?',
-      a: 'Wir arbeiten ohne lange Vertragslaufzeiten. Eine Website ist ein einmaliger Auftrag. Für Hosting und laufende Betreuung besprechen wir die Konditionen transparent im Erstgespräch.',
+      q: 'Wie lange bin ich an euch gebunden?',
+      a: 'Gar nicht lange. Eine Website ist ein einmaliger Auftrag. Hosting und laufende Betreuung sind freiwillig, und die Konditionen legen wir vorher gemeinsam fest.',
     },
     {
       q: 'Was kostet der Einstieg?',
-      a: `Eine Website kostet ab ca. ${chf(site.preise.websiteAb)}, mit eigenem Shooting ca. ${chf(site.preise.websiteMitShooting)}. Ein einzelner Social-Media-Beitrag kostet ${chf(site.preise.einzelbeitrag)}. Alles Weitere besprechen wir nach dem Erstgespräch, damit du nur bezahlst, was dein Betrieb braucht.`,
+      a: `Eine Website startet bei ca. ${chf(site.preise.websiteAb)}, mit eigenem Fotoshooting bei ca. ${chf(site.preise.websiteMitShooting)}. Ein einzelner Social-Media-Beitrag kostet ${chf(site.preise.einzelbeitrag)}. Alles andere besprechen wir nach dem Erstgespräch, damit du nur bezahlst, was du brauchst.`,
     },
     {
-      q: 'Bringt das in unserer Region etwas?',
-      a: 'Wir haben es in der Region schon umgesetzt. Der BC Trogen Speicher hat in 3 Monaten 690 % mehr Instagram-Aufrufe erzielt, die Website der Massagepraxis Regina brachte rund 12 Kontakt-Klicks in den ersten sechs Wochen. Ob es bei dir etwas bringt, klären wir im Erstgespräch. Das kostet nichts.',
+      q: 'Bringt das bei uns in der Region wirklich etwas?',
+      a: 'Beim BC Trogen Speicher sind die Instagram-Aufrufe in 3 Monaten um 690 % gestiegen. Auf der Website der Massagepraxis von Regina gab es in den ersten sechs Wochen rund 12 Klicks auf «Kontakt». Ob es bei dir etwas bringt, sagen wir dir im Erstgespräch ehrlich. Das kostet nichts.',
     },
     {
-      q: 'Versteht ihr unser Geschäft?',
-      a: 'Wir fragen zuerst, bevor wir etwas vorschlagen. Im Erstgespräch erzählst du uns von deinem Betrieb, wir schauen uns deinen Auftritt an und sagen dir offen, was wir sehen. Erfahrung haben wir unter anderem mit einem Restaurant, einer Massagepraxis, einem Sportverein, Coaching und einem Gewerbeverband.',
+      q: 'Kennt ihr meine Branche?',
+      a: 'Wir fragen erst und schlagen dann vor. Erfahrung haben wir unter anderem mit einem Restaurant, einer Massagepraxis, einem Sportverein, Verbänden, Coaching und Events.',
     },
     {
-      q: 'Behalte ich die Kontrolle?',
-      a: 'Du weisst bei uns immer, was wir tun und warum. Du bekommst kurze Updates, und das Material, das wir für dich produzieren, kannst du selbst weiterverwenden.',
+      q: 'Gehört das Material dann mir?',
+      a: 'Ja. Fotos, Videos und Texte, die wir für dich machen, darfst du überall weiterverwenden.',
     },
     {
       q: 'Kann ich euch anrufen?',
@@ -267,12 +266,12 @@ export const faq = {
 export const kontakt = {
   id: 'kontakt',
   eyebrow: 'Kontakt',
-  h2: [{ t: 'Lernen wir uns ' }, { t: 'kennen.', em: true }] as Teil[],
+  h2: 'Sprechen wir miteinander',
   lead: 'Ein Gespräch, 30 Minuten, unverbindlich. Danach weisst du, woran du bist.',
   termin: 'Termin buchen',
   terminText: 'Such dir direkt einen Termin aus.',
   whatsapp: 'WhatsApp schreiben',
-  whatsappText: 'Schnelle Fragen und Rückmeldungen.',
+  whatsappText: 'Für schnelle Fragen.',
   mail: 'E-Mail schreiben',
   mailText: `Wir antworten ${site.antwortZeit}.`,
   adresse: 'Besuch uns in Speicher',
@@ -298,6 +297,7 @@ export const footer = {
     { label: 'Impressum', href: '/impressum' },
     { label: 'Datenschutz', href: '/datenschutz' },
   ],
+  karte: 'Kartendaten: swisstopo, Bundesamt für Landestopografie',
   copyright: `© ${new Date().getFullYear()} ${site.legalName}`,
 }
 
@@ -307,4 +307,3 @@ export const termin = {
   neuerTab: 'In neuem Tab öffnen',
   laedt: 'Der Kalender wird geladen',
 }
-

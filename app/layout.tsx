@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from 'next'
-import { Instrument_Serif, Montserrat } from 'next/font/google'
+import { Atkinson_Hyperlegible_Next, Caveat } from 'next/font/google'
 import { TerminProvider } from '@/components/TerminProvider'
 import { meta } from '@/lib/content'
 import { indexierbar, site } from '@/lib/site'
 import './globals.css'
 
-const body = Montserrat({ subsets: ['latin'], variable: '--font-body', display: 'swap' })
-const display = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['normal', 'italic'], variable: '--font-display', display: 'swap' })
+// Atkinson Hyperlegible Next: vom Braille Institute für beste Lesbarkeit entwickelt. Caveat nur für die Unterschrift im Brief.
+const text = Atkinson_Hyperlegible_Next({ subsets: ['latin'], variable: '--font-text', display: 'swap' })
+const unterschrift = Caveat({ subsets: ['latin'], weight: '600', variable: '--font-unterschrift', display: 'swap' })
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: meta.title, description: meta.description },
 }
 
-export const viewport: Viewport = { themeColor: '#F7F5F0', width: 'device-width', initialScale: 1 }
+export const viewport: Viewport = { themeColor: '#F6F3EC', width: 'device-width', initialScale: 1 }
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -47,7 +48,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de-CH" className={`${body.variable} ${display.variable}`}>
+    <html lang="de-CH" className={`${text.variable} ${unterschrift.variable}`}>
       <body>
         <a className="skip" href="#main">
           Zum Inhalt springen

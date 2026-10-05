@@ -1,18 +1,15 @@
 import Image from 'next/image'
-import { Zitat } from '@/components/Icons'
-import { Teile } from '@/components/Teile'
+import { Pin, Zitat } from '@/components/Icons'
 import { referenzen } from '@/lib/content'
-import { faelle, logoLeiste, zitate } from '@/lib/projekte'
+import { faelle, logoLeiste, weitere, zitate } from '@/lib/projekte'
 
 export function Referenzen() {
   return (
-    <section className="section" id={referenzen.id} aria-labelledby="referenzen-titel">
+    <section className="sektion sektion--sand" id={referenzen.id} aria-labelledby="referenzen-titel">
       <div className="container">
-        <header className="section__kopf">
+        <header className="sektion__kopf">
           <p className="eyebrow">{referenzen.eyebrow}</p>
-          <h2 id="referenzen-titel">
-            <Teile teile={referenzen.h2} />
-          </h2>
+          <h2 id="referenzen-titel">{referenzen.h2}</h2>
           <p className="lead">{referenzen.lead}</p>
         </header>
 
@@ -21,7 +18,7 @@ export function Referenzen() {
             <article className="fall" key={f.slug}>
               {f.bild ? (
                 <div className="fall__bild">
-                  <Image src={f.bild} alt={f.bildAlt ?? f.name} fill sizes="(min-width: 960px) 540px, 92vw" />
+                  <Image src={f.bild} alt={f.bildAlt ?? f.name} fill sizes="(min-width: 900px) 420px, 92vw" />
                 </div>
               ) : (
                 <div className="fall__bild fall__bild--logo">
@@ -29,15 +26,12 @@ export function Referenzen() {
                 </div>
               )}
               <div className="fall__inhalt">
-                <header className="fall__kopf">
-                  {f.bild && <Image src={f.logo} alt={`Logo ${f.name}`} width={56} height={56} />}
-                  <div>
-                    <h3>{f.name}</h3>
-                    <p>
-                      {f.art} · {f.zeitraum}
-                    </p>
-                  </div>
-                </header>
+                <p className="fall__ort">
+                  {f.ort && <Pin />}
+                  {f.ort ? `${f.ort} · ${f.zeitraum}` : f.zeitraum}
+                </p>
+                <h3>{f.name}</h3>
+                <p className="fall__art">{f.art}</p>
                 <dl className="zahlen">
                   {f.kennzahlen.map((k) => (
                     <div key={k.label}>
@@ -46,13 +40,30 @@ export function Referenzen() {
                     </div>
                   ))}
                 </dl>
-                <h4>{referenzen.ausgangslage}</h4>
-                <p>{f.ausgangslage}</p>
-                <h4>{referenzen.umsetzung}</h4>
-                <p>{f.umsetzung}</p>
+                <p>
+                  <b>{referenzen.ausgangslage}:</b> {f.ausgangslage}
+                </p>
+                <p>
+                  <b>{referenzen.umsetzung}:</b> {f.umsetzung}
+                </p>
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="weitere">
+          <h3>{referenzen.weitereTitel}</h3>
+          <ul>
+            {weitere.map((w) => (
+              <li key={w.name}>
+                <strong>{w.name}</strong>
+                <span>
+                  {w.ort}
+                  {w.was ? ` · ${w.was}` : ''}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="stimmen">

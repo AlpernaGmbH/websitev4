@@ -1,16 +1,13 @@
 import { Plus } from '@/components/Icons'
-import { Teile } from '@/components/Teile'
 import { faq } from '@/lib/content'
 
 export function Faq() {
   return (
-    <section className="section" id={faq.id} aria-labelledby="faq-titel">
+    <section className="sektion" id={faq.id} aria-labelledby="faq-titel">
       <div className="container container--schmal">
-        <header className="section__kopf">
+        <header className="sektion__kopf">
           <p className="eyebrow">{faq.eyebrow}</p>
-          <h2 id="faq-titel">
-            <Teile teile={faq.h2} />
-          </h2>
+          <h2 id="faq-titel">{faq.h2}</h2>
         </header>
         <div className="faq">
           {faq.fragen.map((f) => (

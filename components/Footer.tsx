@@ -71,6 +71,7 @@ export function Footer() {
         <p>
           {footer.copyright} · UID {site.uid}
         </p>
+        <p>{footer.karte}</p>
         <ul>
           {footer.rechtliches.map((l) => (
             <li key={l.href}>

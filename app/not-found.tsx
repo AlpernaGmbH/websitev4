@@ -5,9 +5,7 @@ export default function NichtGefunden() {
     <main id="main" className="rechtlich">
       <div className="container container--schmal">
         <p className="eyebrow">Fehler 404</p>
-        <h1>
-          Diese Seite <em>gibt es nicht.</em>
-        </h1>
+        <h1>Diese Seite gibt es nicht.</h1>
         <p className="lead">Vielleicht hilft dir die Startseite weiter.</p>
         <p>
           <Link className="btn btn--primary" href="/">

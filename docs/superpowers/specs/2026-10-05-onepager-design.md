@@ -1,5 +1,7 @@
 # alperna.ch One-Pager: Design
 
+> **Gestalterisch ersetzt** durch `2026-10-05-konzept-naehe-design.md` (Look, Aufbau, Texte). Marketing-Check und Technik gelten weiter.
+
 Stand: 05.10.2026. Freigegeben im Chat am 05.10.2026.
 
 ## Ziel

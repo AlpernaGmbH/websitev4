@@ -46,7 +46,7 @@ const ergebnis = {
   },
 }
 
-const abschnitte = ['.header', '.hero', '.belege', '#check', '#leistungen', '#ablauf', '#referenzen', '#ueber-uns', '#fragen', '#kontakt', '.footer']
+const abschnitte = ['.header', '.hero', '.fakten', '#check', '#leistungen', '#ablauf', '#referenzen', '#ueber-uns', '#fragen', '#kontakt', '.footer']
 const browser = await chromium.launch({ channel: 'chrome' })
 try {
   for (const [name, w, h] of [['desktop', 1280, 900], ['tablet', 768, 1024], ['handy', 375, 812]]) {
@@ -70,7 +70,14 @@ try {
     })
     await page.waitForLoadState('networkidle')
     await page.waitForFunction(() => [...document.images].every((i) => i.complete))
+    await page.addStyleTag({ content: '.header{position:static !important}' })
+    await page.waitForTimeout(4500) // Animation der Karte durchlaufen lassen
     for (const sel of abschnitte) await page.locator(sel).first().screenshot({ path: `${out}/${name}-${sel.replace(/[^a-z]/g, '')}.png` })
+
+    // Karte: Betrieb 3 aktiv
+    await page.locator('.karte-liste .chip').nth(2).hover()
+    await page.waitForTimeout(500)
+    await page.locator('.hero').screenshot({ path: `${out}/${name}-karte-aktiv.png` })
 
     // Marketing-Check: Popup und Ergebnis
     await page.locator('#c-company').fill('Muster Schreinerei AG')

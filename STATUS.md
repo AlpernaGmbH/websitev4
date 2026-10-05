@@ -1,10 +1,12 @@
 # STATUS
 
-Stand: 05.10.2026. Repo `AlpernaGmbH/websitev4`, Vercel-Projekt `websitev4`. Spec und Plan: `docs/superpowers/`.
+Stand: 05.10.2026. Repo `AlpernaGmbH/websitev4`, Vercel-Projekt `websitev4`. Konzept: `docs/superpowers/specs/2026-10-05-konzept-naehe-design.md`.
+
+**Neues Design «Nähe»** (Andrej hat den Entwurf freigegeben): normale Headline, bewegte Karte mit sieben Betrieben aus der Region, Brief bei «Über uns», Markenfarbe Gelb. Der erste Versuch (Kopie des Looks von `websitev2`) ist verworfen.
 
 ## Geprüft (05.10.2026)
-- 53 Unit-Tests und 40 End-to-End-Tests (20 Fälle auf Desktop und Handy) grün. Der Check-Ablauf ist mit gemockter Analyse getestet, es entstehen dabei keine echten Leads und keine KI-Kosten.
-- Lighthouse mobil, lokal, Produktions-Build: Performance 92, Accessibility 100, Best Practices 100. SEO 69, allein wegen `noindex` (wird mit `NEXT_PUBLIC_INDEXABLE=1` zu 100).
+- 59 Unit-Tests und 50 End-to-End-Tests (25 Fälle auf Desktop und Handy) grün, darunter Karte, Info-Leiste, «Brief bei Über uns» und «Markierungen überlagern sich nicht». Der Check-Ablauf ist mit gemockter Analyse getestet, es entstehen dabei keine echten Leads und keine KI-Kosten.
+- Lighthouse mobil, lokal, Produktions-Build: Performance 91, Accessibility 100, Best Practices 100. SEO 69, allein wegen `noindex` (wird mit `NEXT_PUBLIC_INDEXABLE=1` zu 100).
 - Sichtprüfung aller Abschnitte bei 1280, 768 und 375 px (`node scripts/shots.mjs <Ordner>`).
 - Vercel-Build erfolgreich (READY).
 
@@ -14,7 +16,7 @@ Stand: 05.10.2026. Repo `AlpernaGmbH/websitev4`, Vercel-Projekt `websitev4`. Spe
 - **Der Versand an n8n** (Kontaktformular und Check-Lead). `N8N_WEBHOOK_URL` ist in Vercel gesetzt, es wurde aber bewusst kein Test-Lead ausgelöst, damit keine Mail und kein Eintrag im Notion CRM entstehen.
 
 ## Fertig
-- One-Pager: Header, Hero (Termin buchen, Gratis Marketing-Check), Belege, Marketing-Check, Leistungen, Ablauf, Referenzen, Über uns, FAQ, Kontakt, Footer. Alles in Du-Form.
+- Landing-Page: Header, Hero mit Karte (Termin buchen, Gratis Marketing-Check), Fakten, Marketing-Check, Leistungen, Referenzen, Ablauf, Über uns mit Brief, FAQ, Kontakt, Footer. Alles in Du-Form.
 - Marketing-Check: Eingaben, «Check generieren», Popup mit E-Mail-Pflicht (Analyse läuft währenddessen), Ergebnis auf der Seite. Lead geht an den n8n-Webhook (Mail an kontakt@alperna.ch, Notion Sales CRM).
 - KI-Einschätzung der Marke über das Vercel AI Gateway, mit Prüfung der Antwort. Ohne KI-Zugang erscheint das Ergebnis ohne diesen Abschnitt.
 - Termin-Dialog (Calendly, lädt erst beim Öffnen). Kontaktformular mit Honigtopf und optionaler Rückrufnummer.
@@ -22,6 +24,8 @@ Stand: 05.10.2026. Repo `AlpernaGmbH/websitev4`, Vercel-Projekt `websitev4`. Spe
 - Seite ist `noindex`. Keine Cookies, kein Tracking.
 
 ## Offen vor dem Go-live
+- **Kunden auf der Karte bestätigen.** Gezeigt werden sieben Betriebe. Beyond Borders, IFJ Startup Helper und die Stiftung Wirtschaftsförderung AR hat Andrej genannt, Orte siehe Konzept. Weitere Kunden aus der Liste (Appenzellerland Sport, Fahrschule Amno, Gewerbeverein Waldstatt, Appartement Romanshorn) fehlen, weil Ort oder Arbeit unklar sind.
+- **Kartendaten:** swisstopo, Quelle steht im Footer.
 - **Impressum und Datenschutz juristisch prüfen.** Aktuell Entwurf auf Basis der alten Texte, angepasst auf Vercel, Marketing-Check mit KI, Calendly und n8n/Notion.
 - **Vercel Pro.** Der Hobby-Plan ist laut Nutzungsbedingungen nicht für gewerbliche Seiten gedacht.
 - **Domain-Umstellung** von Framer auf Vercel (DNS), danach `NEXT_PUBLIC_INDEXABLE=1` setzen und Search Console prüfen. alperna.ch zeigt bis dahin weiter auf Framer.

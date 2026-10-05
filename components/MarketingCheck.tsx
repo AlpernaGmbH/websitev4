@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { CheckErgebnisAnsicht } from '@/components/CheckErgebnis'
 import { Haken, Pfeil, Schliessen } from '@/components/Icons'
-import { Teile } from '@/components/Teile'
 import type { CheckErgebnis } from '@/lib/check'
 import { check as t } from '@/lib/content'
 import { EMAIL } from '@/lib/schemas'
@@ -216,12 +215,10 @@ export function MarketingCheck() {
     <section className={`check${ergebnis ? ' check--ergebnis' : ''}`} id={t.id} aria-labelledby="check-titel">
       <div className="container check__raster">
         <div className="check__text">
-          <p className="eyebrow eyebrow--hell">{t.eyebrow}</p>
-          <h2 id="check-titel">
-            <Teile teile={t.h2} />
-          </h2>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2 id="check-titel">{t.h2}</h2>
           <p className="lead">{t.lead}</p>
-          <ul className="haken-liste haken-liste--hell">
+          <ul className="haken-liste">
             {t.punkte.map((x) => (
               <li key={x}>
                 <Haken />

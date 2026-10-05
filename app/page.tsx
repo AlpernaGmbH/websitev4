@@ -1,5 +1,5 @@
 import { Ablauf } from '@/components/Ablauf'
-import { Belege } from '@/components/Belege'
+import { Fakten } from '@/components/Fakten'
 import { Faq } from '@/components/Faq'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -16,11 +16,11 @@ export default function Startseite() {
       <Header />
       <main id="main">
         <Hero />
-        <Belege />
+        <Fakten />
         <MarketingCheck />
         <Leistungen />
-        <Ablauf />
         <Referenzen />
+        <Ablauf />
         <UeberUns />
         <Faq />
         <Kontakt />

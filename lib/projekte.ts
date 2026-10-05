@@ -1,6 +1,5 @@
-// Referenzen. Fakten und Zahlen von www.alperna.ch (Projektseiten, gelesen am 04.10.2026),
-// Ausgangslage und Umsetzung in eigenen Worten (aus dem Vorläufer AlpernaGmbH/websitev2).
-// Zitate stehen wörtlich in data/testimonials.json. Pfade gelten ab public/.
+// Referenzen. Fakten und Zahlen von www.alperna.ch (Projektseiten, gelesen am 04.10.2026) und aus den Kundenunterlagen.
+// Zitate stehen wörtlich in data/testimonials.json. Bildpfade gelten ab public/.
 import testimonials from '@/data/testimonials.json'
 
 export type Kennzahl = { wert: string; label: string }
@@ -9,12 +8,12 @@ export type Fall = {
   slug: string
   name: string
   art: string
+  ort: string
   zeitraum: string
   kennzahlen: Kennzahl[]
-  leistungen: string[]
   ausgangslage: string
   umsetzung: string
-  /** Hauptbild des Falls. Ohne Bild zeigt die Karte das Logo auf ruhiger Fläche. */
+  /** Hauptbild. Ohne Bild zeigt die Karte das Logo auf ruhiger Fläche. */
   bild?: string
   bildAlt?: string
   logo: string
@@ -26,16 +25,16 @@ export const faelle: Fall[] = [
   {
     slug: 'bc-trogen-speicher',
     name: 'BC Trogen Speicher',
-    art: 'Sportverein (Badminton)',
+    art: 'Badmintonclub',
+    ort: 'Trogen',
     zeitraum: '3 Monate',
     kennzahlen: [
       { wert: '+690 %', label: 'Instagram-Aufrufe' },
       { wert: '74’300', label: 'Aufrufe' },
       { wert: '21', label: 'erstellte Beiträge' },
     ],
-    leistungen: ['Analyse und Ziele', 'Dreh vor Ort', 'Beiträge und Posting'],
-    ausgangslage: 'Der Verein lebt, aber wer nicht in der Halle stand, sah nichts davon. Turniere und Trainings blieben unter den Mitgliedern.',
-    umsetzung: 'Wir haben an den Turnieren gefilmt, aus dem Material 21 Beiträge geschnitten und das Posting komplett übernommen.',
+    ausgangslage: 'Turniere und Training sah nur, wer in der Halle stand.',
+    umsetzung: 'Wir haben vor Ort gefilmt, 21 Beiträge geschnitten und das Posting übernommen.',
     bild: '/images/projekte/bc-trogen-speicher.webp',
     bildAlt: 'Instagram-Profil des BC Trogen Speicher mit Aufnahmen aus der Halle',
     logo: logo('bc-trogen-speicher'),
@@ -44,15 +43,15 @@ export const faelle: Fall[] = [
     slug: 'regina-massagen',
     name: 'Regina Massagen',
     art: 'Massagepraxis',
+    ort: 'Haslen AI',
     zeitraum: 'Laufende Zusammenarbeit',
     kennzahlen: [
       { wert: '500+', label: 'Bilder produziert' },
       { wert: '20', label: 'Video-Assets' },
       { wert: 'rund 12', label: 'Kontakt-Klicks in den ersten sechs Wochen' },
     ],
-    leistungen: ['Website', 'Shooting', 'Instagram-Profil', 'Google-Profil'],
-    ausgangslage: 'Die Praxis arbeitet gut, neue Kundinnen kamen aber fast nur über Empfehlungen. Online fehlten eine Website und gutes Bildmaterial.',
-    umsetzung: 'Wir haben die Website gebaut, die Praxis fotografiert, Instagram eingerichtet und das Google-Profil angelegt. Mit dem Material veröffentlicht Regina heute selbst.',
+    ausgangslage: 'Neue Kundinnen kamen fast nur über Empfehlungen.',
+    umsetzung: 'Wir haben die Website gebaut, die Praxis fotografiert und Instagram sowie das Google-Profil eingerichtet.',
     bild: '/images/projekte/regina-massagen.webp',
     bildAlt: 'Regina bei der Arbeit in ihrer Massagepraxis',
     logo: logo('regina-massagen'),
@@ -61,15 +60,15 @@ export const faelle: Fall[] = [
     slug: 'alex-breitenmoser',
     name: 'Alex Breitenmoser',
     art: 'Vertriebs-Coaching',
+    ort: '',
     zeitraum: 'Laufende Zusammenarbeit',
     kennzahlen: [
       { wert: '519’000', label: 'Aufrufe insgesamt' },
       { wert: '303’000', label: 'Aufrufe beim besten Video' },
       { wert: '+500', label: 'neue Follower' },
     ],
-    leistungen: ['Positionierung', 'Website', 'Portraits und Videos', 'Social Media'],
-    ausgangslage: 'Alex ist Praktiker im Vertrieb. Sein Auftritt zeigte das nicht: kein roter Faden, keine Website, keine klare Positionierung.',
-    umsetzung: 'Wir haben ihn als praktizierenden Verkäufer positioniert und Website, Portraits und Videos gemacht. Instagram und YouTube betreuen wir laufend.',
+    ausgangslage: 'Ein Praktiker im Vertrieb, aber ohne klare Positionierung und ohne Website.',
+    umsetzung: 'Wir haben ihn positioniert, Website, Portraits und Videos gemacht und betreuen Instagram und YouTube laufend.',
     bild: '/images/projekte/alex-breitenmoser.webp',
     bildAlt: 'Auswahl der Instagram-Videos von Alex Breitenmoser mit Aufrufzahlen',
     logo: logo('alex-breitenmoser'),
@@ -78,16 +77,26 @@ export const faelle: Fall[] = [
     slug: 'gewerbeverband-ar',
     name: 'Gewerbeverband AR',
     art: 'Wirtschaftsverband',
+    ort: 'Teufen',
     zeitraum: 'Einzelprojekt',
     kennzahlen: [
       { wert: '1', label: 'Recap-Video' },
       { wert: '40', label: 'Portraits' },
     ],
-    leistungen: ['Eventfilm', 'Recap-Video', 'Portraits'],
-    ausgangslage: 'Von der Sommerkonferenz gab es weder Videomaterial noch Bilder, weder für den Verband noch für die Referenten.',
-    umsetzung: 'Wir haben den Abend gefilmt und wenige Tage danach das Recap-Video geliefert. An einem eigenen Stand sind 40 Portraits entstanden.',
+    ausgangslage: 'Von der Sommerkonferenz in Teufen gab es kein Bildmaterial.',
+    umsetzung: 'Wir haben den Abend gefilmt, wenige Tage später das Recap-Video geliefert und 40 Portraits gemacht.',
     logo: logo('gewerbeverband-ar'),
   },
+]
+
+export type Weiterer = { name: string; ort: string; was?: string }
+
+/** Weitere Betriebe aus der Region, die auch auf der Karte erscheinen */
+export const weitere: Weiterer[] = [
+  { name: 'Gustav Kahn', ort: 'Romanshorn', was: 'Restaurant, 3 Reels an einem Drehtag' },
+  { name: 'Beyond Borders', ort: 'Ebenalp', was: '200 Fotos und 120 Videos' },
+  { name: 'IFJ Startup Helper', ort: 'St. Gallen' },
+  { name: 'Stiftung Wirtschaftsförderung AR', ort: 'Herisau' },
 ]
 
 export type LogoEintrag = { name: string; logo: string }
