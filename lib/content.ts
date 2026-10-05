@@ -106,6 +106,8 @@ export const check = {
     button: 'Ergebnis anzeigen',
     warten: 'Wir zeigen dein Ergebnis, sobald die Analyse fertig ist.',
     abbrechen: 'Abbrechen',
+    schliessen: 'Schliessen',
+    fehlerTitel: 'Die Analyse hat nicht geklappt',
     laeuftTitel: 'Deine Analyse läuft bereits',
     schritte: ['Website laden', 'Technik und Suchmaschinen prüfen', 'Google-Profil und Social Media abgleichen', 'Marke einschätzen'],
     fertig: 'Analyse fertig',
