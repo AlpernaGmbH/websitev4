@@ -20,9 +20,7 @@ export default function OpengraphBild() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           <div style={{ fontSize: 76, lineHeight: 1.08, maxWidth: 980 }}>Wir sorgen dafür, dass dich Kunden online finden.</div>
-          <div style={{ fontSize: 30, color: 'rgba(253,251,251,0.78)' }}>
-            Website, Google-Profil und Social Media · {site.address.city} {site.address.canton}
-          </div>
+          <div style={{ fontSize: 30, color: 'rgba(253,251,251,0.78)' }}>{`Website, Google-Profil und Social Media · ${site.address.city} ${site.address.canton}`}</div>
         </div>
       </div>
     ),
